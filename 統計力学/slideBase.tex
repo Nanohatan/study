@@ -1,0 +1,31 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern}
+\usepackage{datetime}
+
+
+\renewcommand{\dateseparator}{/}
+\newdateformat{customDate}{\THEYEAR/\twodigit{\THEMONTH}/\twodigit{\THEDAY}}
+
+\newcommand{\shishimai}[1][0.1\textwidth]{%
+  \includegraphics[width=#1 cm]{fig/okinawa_shishimai.eps}
+}
+
+\title{統計力学}
+\author{著者名}
+\date{\customDate\today}
+\setbeamertemplate{footline}[frame number]% ページ数
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{スタイトル}
+  ここにスライドの内容を記述します。
+\end{frame}
+
+
+\end{document}
