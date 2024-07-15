@@ -1,0 +1,123 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{lmodern}
+\usepackage{datetime}
+
+
+\renewcommand{\dateseparator}{/}
+\newdateformat{customDate}{\THEYEAR/\twodigit{\THEMONTH}/\twodigit{\THEDAY}}
+
+\newcommand{\shishimai}[1][0.1\textwidth]{%
+  \includegraphics[width=#1 cm]{fig/okinawa_shishimai.eps}
+}
+
+\title{統計力学}
+\author{著者名}
+\date{\customDate\today}
+\setbeamertemplate{footline}[frame number]% ページ数
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{巨視的状態と微視的状態}
+    私たちは，物質の量を巨視的な量で捉えている．
+
+    すなわち系の平均状態である\underline{巨視的状態}を巨視的な量である
+    \underline{熱力学変数}によって記述している．
+
+    \hspace{0.5cm} (例：体積 \(V\)，粒子数 \(N\)，温度 \(T\)，エネルギー \(E\))
+
+    巨視的な状態を構成しているのは，電子・原子・分子などの粒子であるため，巨視的状態は粒子レベルの状態で記述可能である．\\
+    この粒子レベルの状態を\underline{微視的状態}と呼ぶ．\\
+
+    \includegraphics[width=0.2\textwidth]{fig/okinawa_shishimai.eps} % 画像のパスとファイル名を指定
+    ＜巨視的な性質は微視的な挙動の集計結果として現れる。例えば、温度は粒子の運動エネルギーの平均値として定義される。
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{アンサンブル平均}
+    時間変化する微視的な状態全てに対して，ある物理量Xが定まるとする．
+    そのXの時間平均が我々の測定する物理量に対応する．
+    
+    物理量の時間平均を取ることは困難であるため，
+    代わりに\underline{アンサンブル平均}を取る．
+
+    同一条件下において，ある特定の時間におけるある物理量の多数の測定値の平均(集合平均)
+    \begin{itemize}
+      \item 時間平均とアンサンブル平均が一致する性質を\underline{エルゴード性}という．
+      \item エルゴード性は仮定であり，自明の事実ではない．が，仮定が成り立つとして議論を進める．
+    \end{itemize}
+
+    \includegraphics[width=0.1\textwidth]{fig/okinawa_shishimai.eps}
+    ＜アンサンブル平均について...具体的には、「アンサンブル平均とは、同一のマクロ状態を持つ多数の微視的状態の集合に対する物理量の平均」と記述するのが適切です。
+\end{frame}
+
+\begin{frame}
+  \frametitle{代表的なアンサンブル}
+  アンサンブル平均を行うためにどのようなアンサンブルを考えればよいか？
+
+  代表的なアンサンブルには次の3つがある．
+  \begin{itemize}
+      \item ミクロカノニカルアンサンブル
+      \item カノニカルアンサンブル
+      \item グランドカノニカルアンサンブル
+  \end{itemize}
+
+  どのアンサンブルを用いるのが良いかは問題による．\\どのアンサンブルを用いても，基本的には同じ答えが導かれる．
+  \shishimai[1] ＜どのアンサンブルを用いても、十分な条件下では基本的に同じ物理量の平均値が得られます。
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{ミクロカノニカルアンサンブル}
+  系は周囲と孤立していると考える．系を構成するN，V，Eは一定で，系の状態は巨視的には(N,V,E)で決まっている．
+  微視的には \(\Phi_1\)、\(\Phi_2\) など多くの状態がある．
+  \newline
+  微視的状態の出現率は，等しいと仮定する（当確率の原理）．
+  \shishimai[1]＜系ってなんですか？→物理学や統計力学において、「系」とは研究対象となる物理的な領域や物質の集合を指します。系はその内部の特性や挙動を調べるために定義されます。
+  \begin{itemize}
+    \item 孤立系: 外部とのエネルギーや物質のやり取りが全くない系。例えば、完全に断熱された容器に閉じ込められたガス。
+    \item 閉鎖系: エネルギーの出入りはあるが、物質の出入りがない系。例えば、熱を通す壁で囲まれた容器。
+    \item 開放系: エネルギーや物質の出入りがある系。例えば、沸騰する水が入った開放されたポット。
+  \end{itemize}
+  系を明確に定義することで、その系に対する物理法則を適用し、特定の条件下での挙動を予測することが可能になります。
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{カノニカルアンサンブル}
+  系は温度Tの熱浴の中にと考え，エネルギーEは一定ではなく周辺とEのやり取りが可能である．
+  等温下での実験環境との対応し，最もよく使われるアンサンブルである．
+
+  系は様々なエネルギー状態をもち，その出現率はエネルギーに依存する．$i$状態のエネルギー$E_i$を取る確率は
+  $ e^{-\frac{E_i}{kT}} $に比例する．
+  \newline
+  カノニカルアンサンブルからEの等しい状態だけ取り出すとミクロカノニカルアンサンブルになる．
+
+  \shishimai[1]＜熱浴（Heat Bath） とは、系がエネルギーを交換するための大きな環境を指します。熱浴の例は次の通りです。
+  例:
+  \begin{itemize}
+      \item 熱浴として典型的に考えられるのは、無限に大きな水槽や、大気中に放置された物体などです。
+      \item 水槽の温度が一定であると仮定すれば、その水槽に浸された物体（系）は、エネルギーを水槽（熱浴）と交換しながら一定の温度を保ちます。
+  \end{itemize}
+  カノニカルアンサンブルでは、系は温度 \( T \) の熱浴とエネルギーをやり取りし、様々なエネルギー状態を取り得るという仮定に基づいています。
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{グランドカノニカルアンサンブル}
+  ここにグランドカノニカルアンサンブルの内容を記述します。
+\end{frame}
+
+\begin{frame}
+  \frametitle{スライド2のタイトル}
+  ここにスライド2の内容を記述します。
+\end{frame}
+
+
+\end{document}
